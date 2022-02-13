@@ -199,7 +199,7 @@ class _AboutMeSectionState extends State<AboutMeSection>
         Stack(
           children: [
             Positioned(
-              left: 0,
+              left: 30,
               bottom: 0,
               child: ScaleTransition(
                 scale: _scaleAnimation,

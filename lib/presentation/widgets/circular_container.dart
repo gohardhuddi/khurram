@@ -6,7 +6,7 @@ class CircularContainer extends StatelessWidget {
     this.child,
     this.width,
     this.height,
-    this.iconData = Icons.check,
+    this.iconData = "assets/images/trans.png",
     this.iconColor = AppColors.white,
     this.iconSize = Sizes.ICON_SIZE_24,
     this.borderRadius = const BorderRadius.all(Radius.circular(24)),
@@ -16,7 +16,7 @@ class CircularContainer extends StatelessWidget {
 
   final double? width;
   final double? height;
-  final IconData iconData;
+  final String iconData;
   final double iconSize;
   final Color iconColor;
   final BorderRadius borderRadius;
@@ -35,11 +35,12 @@ class CircularContainer extends StatelessWidget {
         borderRadius: borderRadius,
       ),
       child: child ??
-          Icon(
-            iconData,
-            color: iconColor,
-            size: iconSize,
-          ),
+        Image(image: AssetImage(iconData),height: iconSize,)
+          // Icon(
+          //   iconData,
+          //   color: iconColor,
+          //   size: iconSize,
+          // ),
     );
   }
 }

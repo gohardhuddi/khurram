@@ -36,7 +36,7 @@ class StringConst {
   static const String BEHANCE_ID = "https://github.com/gohardhuddi";
   static const String HIRE_ME_NOW = "Hire Me Now";
   static const String UI_UX = "UI/UX Designer";
-  static const String UI_UX_DESC = "creative Flutter web\n and app design";
+  static const String UI_UX_DESC = "Flutter web and app design";
   static const String FlutterDeveloper = "Flutter Developer";
   static const String xFlutterDeveloper_DESC = "Custom maintainable apps";
   static const String FREELANCER = "Freelancer";
@@ -93,7 +93,7 @@ class StringConst {
   static const String SKILLS_3 = "Firebase";
   static const String SKILLS_3_DESC =
       "We believe direct collaboration with our clients is essential to bringing unique";
-  static const String SKILLS_4 = "SQL";
+  static const String SKILLS_4 = "APIs Integration";
   static const String SKILLS_4_DESC =
       "We believe direct collaboration with our clients is essential to bringing unique";
 
@@ -181,13 +181,13 @@ class StringConst {
   //Footer Section
   static const String LETS_TALK = "Let's Talk!";
   static const String PHONE_ME = "Phone Me";
-  static const String PHONE_NUMBER = "+1 800 123 456 789";
+  static const String PHONE_NUMBER = "+923037871208";
   static const String MAIL_ME = "Mail Me";
   static const String FOLLOW_ME_2 = "Follow Me";
-  static const String FOLLOW_ME_2_URL = "behance.net/nimbus2000";
+  static const String FOLLOW_ME_2_URL = "https://github.com/gohardhuddi";
   static const String RIGHTS_RESERVED = "© 2021 All rights reserved";
   static const String BUILT_BY = "Built with Flutter by";
-  static const String DAVID_COBBINA = "David Cobbina";
+  static const String DAVID_COBBINA = "Khurram";
   static const String DESIGNED_BY = "Designed by";
   static const String WEB_GENIUS_LAB = "WebGeniusLab";
   static const String MADE_IN_GHANA = "Made in";
@@ -198,12 +198,12 @@ class StringConst {
   static const String WEB_GENIUS_LAB_URL = "https://webgeniuslab.net/";
   static const String BEHANCE_URL = "https://www.behance.net/";
   static const String DRIBBLE_URL = "https://dribbble.com/";
-  static const String LINKED_IN_URL = "https:linkedin.com/in/";
+  static const String LINKED_IN_URL = "https://www.linkedin.com/in/khurram-shahzad-747541154/";
   static const String INSTAGRAM_URL = "https://www.instagram.com/";
-  static const String GITHUB_URL = "https://github.com/";
-  static const String FACEBOOK_URL = "https://facebook.com/";
+  static const String GITHUB_URL = "https://github.com/gohardhuddi";
+  static const String StackOverFlow = "https://stackoverflow.com/users/13668595/khurram";
   static const String TWITTER_URL = "http://twitter.com/";
-  static const String DAVID_LEGEND_URL = "https://davidcobbina.com/#/";
+ // static const String DAVID_LEGEND_URL = "https://davidcobbina.com/#/";
   static const String DESIGN_URL =
       "https://www.behance.net/gallery/95351691/Resume-Design-03";
 }

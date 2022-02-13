@@ -41,27 +41,24 @@ class _HeaderImageState extends State<HeaderImage> {
       // color: Colors.teal,
       child: Stack(
         children: [
-          Positioned(
-            left: 0,
-            child: RotationTransition(
-              turns: widget.controller,
-              child: Image.asset(
-                ImagePath.DOTS_GLOBE_GREY,
-                height: widget.globeSize,
-                width: widget.globeSize,
+          Container(
+            child: Positioned(
+              left: 0,
+              child: RotationTransition(
+                turns: widget.controller,
+                child: Image.asset(
+                  ImagePath.DOTS_GLOBE_GREY,
+                  height: widget.globeSize,
+                  width: widget.globeSize,
+                ),
               ),
             ),
           ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: widget.imageHeight,
-            // color: Colors.red,
-            child: Image.asset(
-              ImagePath.DEV_HEADER,
-              // width: widget.imageWidth,
-              // height: widget.imageHeight,
-              fit: BoxFit.scaleDown,
-            ),
+          Image.asset(
+            ImagePath.DEV_HEADER,
+             width: widget.imageWidth,
+             height: widget.imageHeight,
+            fit: BoxFit.scaleDown,
           ),
         ],
       ),

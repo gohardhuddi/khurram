@@ -1,11 +1,13 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:nimbus/presentation/layout/adaptive.dart';
 import 'package:nimbus/presentation/pages/home/sections/header_section/widgets.dart';
 import 'package:nimbus/presentation/widgets/buttons/nimbus_button.dart';
 import 'package:nimbus/presentation/widgets/content_area.dart';
 import 'package:nimbus/presentation/widgets/spaces.dart';
 import 'package:nimbus/values/values.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 const double bodyTextSizeLg = 16.0;
 const double bodyTextSizeSm = 14.0;
@@ -100,7 +102,8 @@ class _HeaderSectionMobileState extends State<HeaderSectionMobile>
                   ],
                 ),
                 Positioned(
-                  right: -(sizeOfBlobSm),
+                  //right: -(sizeOfBlobSm-30),
+                  right: 0,
                   child: HeaderImage(
                     controller: _controller,
                     globeSize: sizeOfGoldenGlobe,
@@ -187,37 +190,33 @@ class _HeaderSectionMobileState extends State<HeaderSectionMobile>
                               ),
                             ),
                             SpaceH30(),
-                            Wrap(
-                              // mainAxisSize: MainAxisSize.min,
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SelectableText(
-                                      "${StringConst.EMAIL}:",
-                                      style: socialTitleStyle,
-                                    ),
-                                    SpaceH8(),
-                                    SelectableText(
-                                      "${StringConst.DEV_EMAIL_2}",
-                                      style: bodyTextStyle,
-                                    ),
-                                  ],
+                                SelectableText(
+                                  "${StringConst.EMAIL}:",
+                                  style: socialTitleStyle,
                                 ),
-                                SpaceW16(),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SelectableText(
-                                      "${StringConst.Github}:",
-                                      style: socialTitleStyle,
-                                    ),
-                                    SpaceH8(),
-                                    SelectableText(
-                                      "${StringConst.BEHANCE_ID}",
-                                      style: bodyTextStyle,
-                                    ),
-                                  ],
+                                SpaceH8(),
+                                SelectableText(
+                                  "${StringConst.DEV_EMAIL_2}",
+                                  style: bodyTextStyle,
+                                ),
+                              ],
+                            ),
+                            SpaceW16(),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SelectableText(
+                                  "${StringConst.Github}:",
+                                  style: socialTitleStyle,
+                                ),
+                                SpaceH8(),
+                                SelectableText(
+                                  "${StringConst.BEHANCE_ID}",
+                                  maxLines: 3,
+                                  style: bodyTextStyle,
                                 ),
                               ],
                             ),
@@ -235,7 +234,9 @@ class _HeaderSectionMobileState extends State<HeaderSectionMobile>
                                   width: buttonWidth,
                                   height: buttonHeight,
                                   buttonTitle: StringConst.HIRE_ME_NOW,
-                                  onPressed: () {},
+                                  onPressed: () async {
+                                   openmail();
+                                  },
                                 ),
                                 // NimBusButtonLink(
                                 //   width: buttonWidth,
@@ -277,5 +278,13 @@ class _HeaderSectionMobileState extends State<HeaderSectionMobile>
         ],
       ),
     );
+  }
+
+  Future<void> openmail() async {
+    if (await canLaunch(StringConst.EMAIL_URL)) {
+    await launch(StringConst.EMAIL_URL);
+    } else {
+    throw 'Could not launch ${StringConst.EMAIL_URL}';
+    }
   }
 }

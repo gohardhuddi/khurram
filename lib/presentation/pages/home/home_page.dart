@@ -44,8 +44,8 @@ class _HomePageState extends State<HomePage>
     NavItemData(name: StringConst.ABOUT, key: GlobalKey()),
     NavItemData(name: StringConst.SKILLS, key: GlobalKey()),
     NavItemData(name: StringConst.PROJECTS, key: GlobalKey()),
-    NavItemData(name: StringConst.AWARDS, key: GlobalKey()),
-    NavItemData(name: StringConst.BLOG, key: GlobalKey()),
+    // NavItemData(name: StringConst.AWARDS, key: GlobalKey()),
+    // NavItemData(name: StringConst.BLOG, key: GlobalKey()),
   ];
 
   @override

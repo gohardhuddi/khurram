@@ -142,26 +142,26 @@ class _AppDrawerState extends State<AppDrawer> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Center(
-          child: SelectableText.rich(
-            TextSpan(
-              text: StringConst.RIGHTS_RESERVED + " ",
-              style: footerTextStyle,
-              children: [
-                TextSpan(text: StringConst.DESIGNED_BY + " "),
-                TextSpan(
-                  text: StringConst.WEB_GENIUS_LAB,
-                  style: footerTextStyle?.copyWith(
-                    decoration: TextDecoration.underline,
-                    fontWeight: FontWeight.w900,
-                    color: AppColors.white,
-                  ),
-                ),
-              ],
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ),
+        // Center(
+        //   child: SelectableText.rich(
+        //     TextSpan(
+        //       text: StringConst.RIGHTS_RESERVED + " ",
+        //       style: footerTextStyle,
+        //       children: [
+        //         TextSpan(text: StringConst.DESIGNED_BY + " "),
+        //         TextSpan(
+        //           text: StringConst.WEB_GENIUS_LAB,
+        //           style: footerTextStyle?.copyWith(
+        //             decoration: TextDecoration.underline,
+        //             fontWeight: FontWeight.w900,
+        //             color: AppColors.white,
+        //           ),
+        //         ),
+        //       ],
+        //     ),
+        //     textAlign: TextAlign.center,
+        //   ),
+        // ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

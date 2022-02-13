@@ -5,8 +5,10 @@ import 'package:nimbus/presentation/layout/adaptive.dart';
 import 'package:nimbus/presentation/widgets/buttons/nimbus_button.dart';
 import 'package:nimbus/presentation/widgets/skill_card.dart';
 import 'package:nimbus/presentation/widgets/spaces.dart';
+import 'package:nimbus/utils/functions.dart';
 import 'package:nimbus/values/values.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class BrandSection extends StatelessWidget {
@@ -62,7 +64,7 @@ class BrandSection extends StatelessWidget {
                       return SkillCard(
                         width: assignWidth(context, 0.7),
                         height: heightOfCarouselSm,
-                        iconData: FontAwesomeIcons.twitter,
+                        iconData: "assets/images/coding.png",
                         title: "Brand",
                       );
                     },
@@ -83,7 +85,7 @@ class BrandSection extends StatelessWidget {
                       return SkillCard(
                         width: widthOfCarouselMd,
                         height: heightOfCarouselMd,
-                        iconData: FontAwesomeIcons.twitter,
+                        iconData: "assets/images/coding.png",
                         title: "Brand",
                       );
                     },
@@ -104,7 +106,7 @@ class BrandSection extends StatelessWidget {
                       return SkillCard(
                         width: 200,
                         height: heightOfCarouselLg,
-                        iconData: FontAwesomeIcons.twitter,
+                        iconData: "assets/images/coding.png",
                         title: "Brand",
                       );
                     },
@@ -120,7 +122,13 @@ class BrandSection extends StatelessWidget {
             child: NimbusButton(
               buttonTitle: StringConst.HIRE_ME,
               buttonColor: AppColors.primaryColor,
-              onPressed: () {},
+              onPressed: () async {
+    if (await canLaunch(StringConst.EMAIL_URL)) {
+    await launch(StringConst.EMAIL_URL);
+    } else {
+    throw 'Could not launch ${StringConst.EMAIL_URL}';
+    }
+   },
             ),
           ),
         ],

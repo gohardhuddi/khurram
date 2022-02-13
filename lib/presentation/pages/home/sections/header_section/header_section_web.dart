@@ -9,6 +9,7 @@ import 'package:nimbus/presentation/widgets/spaces.dart';
 import 'package:nimbus/utils/functions.dart';
 import 'package:nimbus/values/values.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 const double bodyTextSizeLg = 16.0;
 const double bodyTextSizeSm = 14.0;
@@ -125,7 +126,8 @@ class _HeaderSectionWebState extends State<HeaderSectionWeb>
                   ],
                 ),
                 Positioned(
-                  right: -(sizeOfBlobSm * 0.8),
+                 // right: -(sizeOfBlobSm * 0.8),
+                  right:  0,
                   child: HeaderImage(
                     controller: _controller,
                     globeSize: sizeOfGoldenGlobe,
@@ -257,10 +259,17 @@ class _HeaderSectionWebState extends State<HeaderSectionWeb>
                                   width: buttonWidth,
                                   height: buttonHeight,
                                   buttonTitle: StringConst.HIRE_ME_NOW,
-                                  opensUrl: true,
-                                  url: StringConst.EMAIL_URL,
-                                  // onPressed: () =>
-                                  //     openUrlLink(StringConst.EMAIL_URL),
+                                 // opensUrl: true,
+                                  //url: StringConst.EMAIL_URL,
+                                  // onPressed: () => openUrlLink(StringConst.EMAIL_URL),
+                                 onPressed: () async {
+
+                                     if (await canLaunch(StringConst.EMAIL_URL)) {
+                                       await launch(StringConst.EMAIL_URL);
+                                     } else {
+                                       throw 'Could not launch ${StringConst.EMAIL_URL}';
+                                     }
+                                 },
                                 ),
                                 // NimBusButtonLink(
                                 //   width: buttonWidth,

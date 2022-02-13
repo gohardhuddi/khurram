@@ -2,52 +2,52 @@ part of values;
 
 class Data {
   static List<SocialButtonData> socialData = [
+    // SocialButtonData(
+    //   tag: StringConst.TWITTER_URL,
+    //   iconData: FontAwesomeIcons.twitter,
+    //   url: StringConst.TWITTER_URL,
+    // ),
     SocialButtonData(
-      tag: StringConst.TWITTER_URL,
-      iconData: FontAwesomeIcons.twitter,
-      url: StringConst.TWITTER_URL,
-    ),
-    SocialButtonData(
-      tag: StringConst.FACEBOOK_URL,
-      iconData: FontAwesomeIcons.facebook,
-      url: StringConst.FACEBOOK_URL,
+      tag: StringConst.StackOverFlow,
+      iconData: FontAwesomeIcons.stackOverflow,
+      url: StringConst.StackOverFlow,
     ),
     SocialButtonData(
       tag: StringConst.LINKED_IN_URL,
       iconData: FontAwesomeIcons.linkedin,
       url: StringConst.LINKED_IN_URL,
     ),
-    SocialButtonData(
-      tag: StringConst.INSTAGRAM_URL,
-      iconData: FontAwesomeIcons.instagram,
-      url: StringConst.INSTAGRAM_URL,
-    ),
+    // SocialButtonData(
+    //   tag: StringConst.INSTAGRAM_URL,
+    //   iconData: FontAwesomeIcons.instagram,
+    //   url: StringConst.INSTAGRAM_URL,
+    // ),
   ];
   static List<SocialButton2Data> socialData2 = [
     SocialButton2Data(
       title: StringConst.Github,
-      iconData: FontAwesomeIcons.behance,
-      url: StringConst.BEHANCE_URL,
+      iconData: FontAwesomeIcons.github,
+      url: StringConst.GITHUB_URL,
       titleColor: AppColors.blue300,
       buttonColor: AppColors.blue300,
       iconColor: AppColors.white,
     ),
     SocialButton2Data(
       title: StringConst.Linkdin,
-      iconData: FontAwesomeIcons.dribbble,
-      url: StringConst.DRIBBLE_URL,
+      iconData: FontAwesomeIcons.linkedin,
+      url: StringConst.LINKED_IN_URL,
       titleColor: AppColors.pink300,
       buttonColor: AppColors.pink300,
       iconColor: AppColors.white,
     ),
-    SocialButton2Data(
-      title: StringConst.INSTA,
-      iconData: FontAwesomeIcons.instagram,
-      url: StringConst.INSTAGRAM_URL,
-      titleColor: AppColors.yellow300,
-      buttonColor: AppColors.yellow300,
-      iconColor: AppColors.white,
-    ),
+    // SocialButton2Data(
+    //   title: StringConst.INSTA,
+    //   iconData: FontAwesomeIcons.instagram,
+    //   url: StringConst.INSTAGRAM_URL,
+    //   titleColor: AppColors.yellow300,
+    //   buttonColor: AppColors.yellow300,
+    //   iconColor: AppColors.white,
+    // ),
   ];
 
   static List<SkillLevelData> skillLevelData = [
@@ -63,37 +63,41 @@ class Data {
       skill: StringConst.SKILLS_3,
       level: 70,
     ),
+    SkillLevelData(
+      skill: "APIs Integration",
+      level: 90,
+    ),
   ];
 
   static List<SkillCardData> skillCardData = [
     SkillCardData(
       title: StringConst.SKILLS_1,
       description: StringConst.SKILLS_1_DESC,
-      iconData: FontAwesomeIcons.compress,
+      iconData: "assets/images/coding.png",
     ),
     SkillCardData(
         title: "",
         description: "",
-        iconData: Icons.pages_outlined), //not being used
+        iconData: "assets/images/coding.png",), //not being used
     SkillCardData(
       title: StringConst.SKILLS_2,
       description: StringConst.SKILLS_2_DESC,
-      iconData: Icons.pages_outlined,
+      iconData: "assets/images/flutterl.png",
     ),
     SkillCardData(
       title: StringConst.SKILLS_3,
       description: StringConst.SKILLS_3_DESC,
-      iconData: FontAwesomeIcons.paintBrush,
+      iconData: "assets/images/firebase.png",
     ),
     SkillCardData(
       title: StringConst.SKILLS_4,
       description: StringConst.SKILLS_4_DESC,
-      iconData: FontAwesomeIcons.recordVinyl,
+      iconData: "assets/images/api.png",
     ),
     SkillCardData(
         title: "",
         description: "",
-        iconData: Icons.pages_outlined), //not being used
+        iconData: "assets/images/coding.png"), //not being used
   ];
   static List<StatItemData> statItemsData = [
     StatItemData(value: 12, subtitle: StringConst.HAPPY_CLIENTS),

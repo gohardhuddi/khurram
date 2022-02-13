@@ -10,6 +10,7 @@ import 'package:nimbus/presentation/widgets/spaces.dart';
 import 'package:nimbus/utils/functions.dart';
 import 'package:nimbus/values/values.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 List<FooterItem> footerItems = [
   FooterItem(
@@ -25,7 +26,7 @@ List<FooterItem> footerItems = [
   FooterItem(
     title: StringConst.FOLLOW_ME_2 + ":",
     subtitle: StringConst.BEHANCE_ID,
-    iconData: FontAwesomeIcons.behance,
+    iconData: FontAwesomeIcons.github,
   ),
 ];
 
@@ -53,6 +54,17 @@ class _FooterSectionState extends State<FooterSection> {
       md: screenHeight * 0.85,
       sm: screenHeight * 0.85,
     );
+    double buttonWidth = responsiveSize(
+      context,
+      80,
+      150,
+    );
+    double buttonHeight = responsiveSize(
+      context,
+      48,
+      60,
+      md: 54,
+    );
 
     return ContentArea(
       padding: EdgeInsets.symmetric(horizontal: getSidePadding(context)),
@@ -71,32 +83,34 @@ class _FooterSectionState extends State<FooterSection> {
                 return _buildFooterSectionLg(
                   width: contentAreaWidth,
                   height: contentAreaHeight,
+                  buttonheight: buttonHeight,
+                  buttonwidth: buttonWidth,
                 );
               }
             },
           ),
           SpaceH20(),
-          InkWell(
-            onTap: () => openUrlLink(StringConst.WEB_GENIUS_LAB_URL),
-            child: RichText(
-              text: TextSpan(
-                text: StringConst.RIGHTS_RESERVED + " ",
-                style: footerTextStyle,
-                children: [
-                  TextSpan(text: StringConst.DESIGNED_BY + " "),
-                  TextSpan(
-                    text: StringConst.WEB_GENIUS_LAB,
-                    style: footerTextStyle?.copyWith(
-                      decoration: TextDecoration.underline,
-                      fontWeight: FontWeight.w900,
-                      color: AppColors.black,
-                    ),
-                  ),
-                ],
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
+          // InkWell(
+          //   onTap: () => openUrlLink(StringConst.WEB_GENIUS_LAB_URL),
+          //   child: RichText(
+          //     text: TextSpan(
+          //       text: StringConst.RIGHTS_RESERVED + " ",
+          //       style: footerTextStyle,
+          //       children: [
+          //         TextSpan(text: StringConst.DESIGNED_BY + " "),
+          //         TextSpan(
+          //           text: StringConst.WEB_GENIUS_LAB,
+          //           style: footerTextStyle?.copyWith(
+          //             decoration: TextDecoration.underline,
+          //             fontWeight: FontWeight.w900,
+          //             color: AppColors.black,
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //     textAlign: TextAlign.center,
+          //   ),
+          // ),
           // NimBusLink(
           //   url: StringConst.WEB_GENIUS_LAB_URL,
           //   child: RichText(
@@ -125,7 +139,7 @@ class _FooterSectionState extends State<FooterSection> {
               Expanded(
                 child: Center(
                   child:InkWell(
-                    onTap: () => openUrlLink(StringConst.DAVID_LEGEND_URL),
+                   // onTap: () => openUrlLink(StringConst.DAVID_LEGEND_URL),
                     child: RichText(
                       text: TextSpan(
                         text: StringConst.BUILT_BY + " ",
@@ -272,7 +286,14 @@ class _FooterSectionState extends State<FooterSection> {
                   NimbusButton(
                     buttonTitle: StringConst.HIRE_ME,
                     buttonColor: AppColors.primaryColor,
-                    onPressed: () {},
+                      onPressed: () async {
+    if (await canLaunch(StringConst.EMAIL_URL)) {
+    await launch(StringConst.EMAIL_URL);
+    } else {
+    throw 'Could not launch ${StringConst.EMAIL_URL}';
+    }
+    },
+
                   ),
                   SpaceH80(),
                 ],
@@ -286,7 +307,8 @@ class _FooterSectionState extends State<FooterSection> {
 
   Widget _buildFooterSectionLg({
     required double width,
-    required double height,
+    required double height,required double buttonwidth,
+    required double buttonheight,
   }) {
     TextTheme textTheme = Theme.of(context).textTheme;
     return ContentArea(
@@ -339,10 +361,16 @@ class _FooterSectionState extends State<FooterSection> {
                   ],
                 ),
                 Spacer(),
-                NimBusButtonLink(
-                  url: StringConst.EMAIL_URL,
+                NimbusButton(
+                  width: buttonwidth,
+                  height: buttonheight,
                   buttonTitle: StringConst.HIRE_ME,
                   buttonColor: AppColors.primaryColor,
+                  onPressed: () async {if (await canLaunch(StringConst.EMAIL_URL)) {
+                  await launch(StringConst.EMAIL_URL);
+                  } else {
+                  throw 'Could not launch ${StringConst.EMAIL_URL}';
+                  }},
                 ),
                 Spacer(flex: 2),
               ],
