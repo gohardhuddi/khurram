@@ -113,7 +113,7 @@ class _ProjectItemState extends State<ProjectItem>
       child: Container(
         child: Stack(
           children: [
-            Image.asset(
+            Image.network(
               widget.imageUrl,
               width: widget.width,
               height: widget.height,

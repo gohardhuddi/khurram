@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
+import 'package:nimbus/controller/getxController.dart';
+import 'package:nimbus/model/projectsModel.dart';
 import 'package:nimbus/presentation/layout/adaptive.dart';
 import 'package:nimbus/presentation/pages/home/sections/about_me_section.dart';
 import 'package:nimbus/presentation/pages/home/sections/awards_section.dart';
@@ -67,9 +71,14 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
+    final counterController = Get.put(Controller());
+    List<ProjectsModel> pl=counterController.projectsData;
     double screenHeight = heightOfScreen(context);
     double spacerHeight = screenHeight * 0.10;
-
+    double elevation = 4.0;
+    double scale = 1.0;
+    Offset translate = Offset(0,0);
+    bool ishover= false;
     return Scaffold(
       key: _scaffoldKey,
       drawer: ResponsiveBuilder(
@@ -174,7 +183,52 @@ class _HomePageState extends State<HomePage>
                           SizedBox(height: spacerHeight),
                           Container(
                             key: navItems[3].key,
-                            child: ProjectsSection(),
+                            // child: ProjectsSection(),
+                            // child: Container(
+                            //   color: Colors.red,
+                            //   width: MediaQuery.of(context).size.width,
+                            //   height: 300,
+                            //   child: InteractiveViewer(
+                            //     panEnabled: false, // Set it to false
+                            //     boundaryMargin: EdgeInsets.all(100),
+                            //     minScale: 0.5,
+                            //     maxScale: 2,
+                            //     child: GridView.builder(itemCount:40,
+                            //       scrollDirection: Axis.horizontal,
+                            //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            //           crossAxisCount: 1,
+                            //           crossAxisSpacing: 4.0,
+                            //           mainAxisSpacing: 4.0
+                            //       ),
+                            //       itemBuilder: (BuildContext context, int index){
+                            //         //return Image.network(pl[index].proImageUrl);
+                            //         return Image.network("https://firebasestorage."
+                            //             "googleapis.com/v0/b/khurramshahzad-37e0c."
+                            //             "appspot.com/o/test.jpeg?alt=media&token="
+                            //             "e66fad91-97b1-46e1-b7b1-2156980da43e");
+                            //       },  ),
+                            //   ),
+                            // ),
+                              child:MouseRegion(
+                                onEnter: (_){
+                                  setState(() {
+                                  ishover=true;
+                                  });print("hover");
+                                },
+                                onExit: (_){
+                                  setState(() {
+                                    ishover=false;
+                                  });
+
+                                },
+                                child:ishover==true? Image.network(
+                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTExtoLVhMIfPRj_8d5RQKF2qjwUbuYL2tZTg&usqp=CAU',
+                                ):Container(
+                                  width: 100,
+                                  height: 100,
+                                  color: Colors.redAccent,
+                                )
+                              ),
                           ),
                         ],
                       ),

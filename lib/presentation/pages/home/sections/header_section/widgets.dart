@@ -93,6 +93,7 @@ List<Widget> buildSocialIcons(List<SocialButtonData> socialItems) {
 }
 
 List<Widget> buildCardRow({
+
   required BuildContext context,
   required List<NimBusCardData> data,
   required double width,

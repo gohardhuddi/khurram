@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "8223601843",
+    "project_id": "khurramshahzad-37e0c",
+    "storage_bucket": "khurramshahzad-37e0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8223601843:android:5e2814d99314b7cccbacc6",
+        "android_client_info": {
+          "package_name": "com.khurram.potfolio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "8223601843-gjrpvoiudqq76uhcpe06mcvc9047u8tq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApNxW0RgTqrZrgPB_L9QEyiY8qbPv0GbE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "8223601843-gjrpvoiudqq76uhcpe06mcvc9047u8tq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
