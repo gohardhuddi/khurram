@@ -1,0 +1,131 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+void main() => runApp(MyApp());
+
+/// This Widget is the main application widget.
+class MyApp extends StatelessWidget {
+  static const String _title = 'Flutter Code Sample';
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: _title,
+      home: Scaffold(
+        appBar: AppBar(title: const Text(_title)),
+        body: Center(
+          child: MyStatefulWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  Color textColor = Colors.blue;
+  int _enterCounter = 0;
+  int _exitCounter = 0;
+  double ele = 0;
+  double x = 0.0;
+  double y = 0.0;
+  double xaxis = 0.0;
+  double yaxis = 0.0;
+  double optacityclr = 0.0;
+
+  // void _incrementEnter(PointerEvent details) {
+  //   setState(() {
+  //     _enterCounter++;
+  //   });
+  // }
+
+  void _incrementExit(PointerEvent details) {
+    setState(() {
+      optacityclr = 0.0;
+      ele = 0;
+      xaxis = 0.0;
+      yaxis = 0.0;
+      // textColor = Colors.blue;
+      //_exitCounter++;
+    });
+  }
+
+  void _updateLocation(PointerEvent details) {
+    setState(() {
+      optacityclr = 0.7;
+      ele = 50;
+      //textColor = Colors.red;
+      x = details.position.dx;
+      y = details.position.dy;
+      xaxis = 0.0;
+      yaxis = 0.0;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      // onEnter: _incrementEnter,
+      onHover: _updateLocation,
+      onExit: _incrementExit,
+      // child: FlatButton(
+      //   color: Colors.white,
+      //   textColor: Colors.teal[700], //when hovered text color change
+      //   shape: RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.circular(5),
+      //     side: BorderSide(
+      //       color: Colors.red,
+      //     ),
+      //   ),
+      //   onPressed: () {},
+      //   child: Text(
+      //     "Log in",
+      //     style: TextStyle(color: textColor),
+      //   ),
+      // ),
+      child: Transform.translate(
+        offset: Offset(xaxis, yaxis),
+        child: Stack(
+          children: [
+            Material(
+              elevation: ele,
+              child: Container(
+                width: 300,
+                height: 200,
+                color: Colors.blue,
+                child: Image.network(
+                    "https://static4.depositphotos.com/1011776/346/i/950/depositphotos_3466285-stock-photo-sunset-of-faisal-mosque.jpg"),
+              ),
+            ),
+            Positioned(
+                bottom: 0,
+                child: Opacity(
+                  opacity: optacityclr,
+                  child: Container(
+                    width: 300,
+                    height: 100,
+                    color: Colors.black,
+                    child: Column(
+                      children: [
+                        Text(
+                          "Faisla Masjid",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        Text(
+                          "Faisla Masjid is located in Islamabad , Capital of Pakistan ",
+                          style: TextStyle(color: Colors.white),
+                        )
+                      ],
+                    ),
+                  ),
+                ))
+          ],
+        ),
+      ),
+    );
+  }
+}
